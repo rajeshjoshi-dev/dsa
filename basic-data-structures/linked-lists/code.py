@@ -1,9 +1,11 @@
 # Implementation in Python (Singly Linked List)
 
+
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+
 
 class LinkedList:
     def __init__(self):
@@ -62,13 +64,14 @@ class LinkedList:
 
         prev.next = temp.next
 
+
 ll = LinkedList()
 ll.insert_at_end(1)
 ll.insert_at_end(2)
 ll.insert_at_end(3)
-ll.print_list()   # 1 -> 2 -> 3 -> None
+ll.print_list()  # 1 -> 2 -> 3 -> None
 ll.insert_at_beginning(0)
-ll.print_list()   # 0 -> 1 -> 2 -> 3 -> None
+ll.print_list()  # 0 -> 1 -> 2 -> 3 -> None
 
 ll.delete_node(2)
-ll.print_list()   # 0 -> 1 -> 3 -> None
+ll.print_list()  # 0 -> 1 -> 3 -> None

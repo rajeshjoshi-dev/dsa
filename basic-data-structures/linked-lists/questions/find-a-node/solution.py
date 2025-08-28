@@ -1,15 +1,13 @@
-# Implementation in Python (Singly Linked List)
-
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
 
-    # 1. Traversal
     def print_list(self):
         temp = self.head
         while temp:
@@ -17,13 +15,6 @@ class LinkedList:
             temp = temp.next
         print("None")
 
-    # 2. Insertion at beginning
-    def insert_at_beginning(self, data):
-        new_node = Node(data)
-        new_node.next = self.head
-        self.head = new_node
-
-    # 3. Insertion at end
     def insert_at_end(self, data):
         new_node = Node(data)
         if not self.head:
@@ -36,39 +27,40 @@ class LinkedList:
 
         temp.next = new_node
 
-    # 4. Insertion after a node
-    def insert_after(self, prev_node: Node, data):
-        if not prev_node:
-            return
-        new_node = Node(data)
-        new_node.next = prev_node.next
-        prev_node.next = new_node
-
-    # 5. Deletion by data
-    def delete_node(self, data):
+    def find_a_node(self, target) -> bool:
         temp = self.head
+        while temp:
+            if not temp.next:
+                return False
 
-        if temp.data == data:
-            self.head = temp.next
-            return
+            if temp.data == target:
+                return True
 
-        prev = None
-        while temp and temp.data != data:
-            prev = temp
             temp = temp.next
 
-        if not temp:
-            return
+        return False
 
-        prev.next = temp.next
+    def recursively_find_a_node(self, target) -> bool:
+        return self.__recursively_find_a_node(target, self.head)
+
+    def __recursively_find_a_node(self, target, node: Node = None) -> bool:
+        if not node:
+            return False
+
+        if node.data == target:
+            return True
+
+        return self.__recursively_find_a_node(target, node.next)
+
 
 ll = LinkedList()
 ll.insert_at_end(1)
 ll.insert_at_end(2)
 ll.insert_at_end(3)
-ll.print_list()   # 1 -> 2 -> 3 -> None
-ll.insert_at_beginning(0)
-ll.print_list()   # 0 -> 1 -> 2 -> 3 -> None
+ll.print_list()  # 1 -> 2 -> 3 -> None
 
-ll.delete_node(2)
-ll.print_list()   # 0 -> 1 -> 3 -> None
+print(ll.find_a_node(2))  # True
+print(ll.recursively_find_a_node(2))  # True
+
+print(ll.find_a_node(9))  # False
+print(ll.recursively_find_a_node(9))  # False

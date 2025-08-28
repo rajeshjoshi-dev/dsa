@@ -141,7 +141,7 @@ In Python, the most common structure similar to arrays is the list, but Python a
 - **Traversal**: loops
 - **Other**: length, reverse, concatenation, sorting
 
-### [code](./basic-data-structures/arrays/code.py)
+#### [code](./basic-data-structures/arrays/code.py)
 
 ### Linked Lists
 
@@ -158,7 +158,7 @@ Unlike arrays, linked lists do not store data in contiguous memory.
 - **Doubly Linked List** – Each node points to both next and previous nodes.
 - **Circular Linked List** – Last node points back to the first node.
 
-### [code](./basic-data-structures/linked-lists/code.py)
+#### [code](./basic-data-structures/linked-lists/code.py)
 
 #### [Questions](./basic-data-structures/linked-lists/questions/)
 
