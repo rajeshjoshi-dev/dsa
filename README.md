@@ -4,7 +4,7 @@
 - [Importance of Data Structures](#importance-of-data-structures)
 - [Basic Data Structures](#basic-data-structures)
 
-  - [Arrays](#array)
+  - [Arrays](#arrays)
   - [Linked Lists](#linked-lists)
   - [Stacks](#stacks)
   - [Queues](#queues)
@@ -117,9 +117,55 @@ The five main types of basic data structures are: Arrays, Linked Lists, Stacks, 
 - **Queues** operate on the First-In-First-Out principle (FIFO) and are commonly used in task scheduling.
 - **Hash Tables** store key-value pairs allowing for fast insertion, deletion, and search operations.
 
-### Array
+### Arrays
+
+In Python, the most common structure similar to arrays is the list, but Python also provides a special array module (`array` class) for more memory-efficient storage of homogeneous data (all elements of the same type).
+
+**List**: Can store mixed data types.
+
+**array.array**: Stores only one type of data (e.g., all integers or all floats).
+
+#### When to Use Arrays vs Lists
+
+- Use list if you need flexibility with mixed data types.
+- Use array.array if you need memory efficiency and all elements are the same type.
+- Use NumPy arrays (`numpy.array`) if you work with numerical data and need high-performance operations (matrix/vector calculations).
+
+#### Summary of Operations
+
+- **Creation**: list, array module, NumPy
+- **Accessing**: index, slicing
+- **Modification**: update, append, insert
+- **Deletion**: remove, pop
+- **Searching**: index, in operator
+- **Traversal**: loops
+- **Other**: length, reverse, concatenation, sorting
+
+### [code](./basic-data-structures/arrays/code.py)
 
 ### Linked Lists
+
+A linked list is a linear data structure where elements (nodes) are connected using pointers. Each node contains:
+
+- **Data** – value stored.
+- **Next** – reference (pointer) to the next node.
+
+Unlike arrays, linked lists do not store data in contiguous memory.
+
+#### Types of Linked Lists
+
+- **Singly Linked List** – Each node points to the next node.
+- **Doubly Linked List** – Each node points to both next and previous nodes.
+- **Circular Linked List** – Last node points back to the first node.
+
+### [code](./basic-data-structures/linked-lists/code.py)
+
+#### [Questions](./basic-data-structures/linked-lists/questions/)
+
+- Calculate the sum of all node values [(sum-of-values)](./basic-data-structures/linked-lists/questions/sum-of-values)
+- Find a node with given data [(find-a-node)](./basic-data-structures/linked-lists/questions/find-a-node)
+- Reverse a Linked-list [(reverse-linked-list)](./basic-data-structures/linked-lists/questions/reverse-linked-list)
+- Zip 2 Linked-lists [(zipper)](./basic-data-structures/linked-lists/questions/zipper)
 
 ### Stacks
 
