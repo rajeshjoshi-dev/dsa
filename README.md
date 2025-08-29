@@ -141,7 +141,7 @@ In Python, the most common structure similar to arrays is the list, but Python a
 - **Traversal**: loops
 - **Other**: length, reverse, concatenation, sorting
 
-#### [code](./basic-data-structures/arrays/code.py)
+#### [Code](./basic-data-structures/arrays/code.py)
 
 ### Linked Lists
 
@@ -158,7 +158,7 @@ Unlike arrays, linked lists do not store data in contiguous memory.
 - **Doubly Linked List** – Each node points to both next and previous nodes.
 - **Circular Linked List** – Last node points back to the first node.
 
-#### [code](./basic-data-structures/linked-lists/code.py)
+#### [Code](./basic-data-structures/linked-lists/code.py)
 
 #### [Questions](./basic-data-structures/linked-lists/questions/)
 
@@ -168,6 +168,37 @@ Unlike arrays, linked lists do not store data in contiguous memory.
 - Zip 2 Linked-lists [(zipper)](./basic-data-structures/linked-lists/questions/zipper)
 
 ### Stacks
+
+A stack is a linear data structure that follows the LIFO (Last In, First Out) principle.
+
+- The last element added is the first one to be removed.
+- Think of it as a pile of plates: you put one plate on top, and you also take the top plate out first.
+
+#### Core Operations of a Stack
+
+A stack supports the following main operations:
+
+- **push(x)** → Add an element x to the top of the stack.
+- **pop()** → Remove and return the top element.
+- **peek() / top()** → View the top element without removing it.
+- **is_empty()** → Check if the stack is empty.
+- **size()** → Return the number of elements in the stack.
+
+#### Stack Applications
+
+Stacks are widely used in:
+
+- Undo/Redo in text editors.
+- Backtracking in algorithms (e.g., maze solving).
+- Function call stack in programming languages.
+- Expression evaluation (postfix, prefix).
+- Balanced parentheses checking.
+
+#### [Code](./basic-data-structures/stacks/code.py)
+
+#### [Questions](./basic-data-structures/stacks/questions/)
+
+- Balanced Parentheses [(balanced-parentheses)](./basic-data-structures/stacks/questions/balanced-parentheses)
 
 ### Queues
 

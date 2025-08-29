@@ -27,11 +27,50 @@ class LinkedList:
 
         temp.next = new_node
 
-    def zipper(self, node2: Node): ...
+    def zipper(self, node2: Node):
+        tail = self.head
+        node1: Node = self.head.next
 
-    def recursive_zipper(self, node2: Node): ...
+        starting = tail
 
-    def __recursive_zipper(self, node2: Node): ...
+        counter = 0
+        while True:
+            counter += 1
+
+            if not node1:
+                tail.next = node2
+                break
+
+            if not node2:
+                tail.next = node1
+                break
+
+            if counter % 2 == 1:
+                current = node2
+                node2 = node2.next
+            else:
+                current = node1
+                node1 = node1.next
+
+            tail.next = current
+            tail = current
+
+        self.head = starting
+
+    def recursive_zipper(self, node2: Node):
+        self.__recursive_zipper(self.head, node2)
+
+    def __recursive_zipper(self, node1: Node, node2: Node):
+        if not node1 or not node2:
+            return
+
+        n1next = node1.next
+        n2next = node2.next
+
+        node1.next = node2
+        node2.next = n1next
+
+        self.__recursive_zipper(n1next, n2next)
 
 
 ll1 = LinkedList()
@@ -48,5 +87,5 @@ ll2.insert_at_end("q")
 ll2.insert_at_end("r")
 ll2.print_list()  # 'q' -> 'r' -> None
 
-ll1.zipper(ll2)
+ll1.recursive_zipper(ll2.head)
 ll1.print_list()  # 'a' -> 'q' -> 'b' -> 'r' -> 'c' > 'd' -> 'e' -> 'f' -> None
