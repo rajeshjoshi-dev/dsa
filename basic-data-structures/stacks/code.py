@@ -34,7 +34,6 @@ print(s.peek())  # 20
 print(s.size())  # 2
 
 # Method 2: Using collections.deque
-
 from collections import deque
 
 stack = deque()

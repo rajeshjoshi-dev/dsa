@@ -202,6 +202,42 @@ Stacks are widely used in:
 
 ### Queues
 
+A queue is a linear data structure that follows the FIFO (First In, First Out) principle.
+
+- The first element added is the first one to be removed.
+- Think of it like people standing in a line: the first person enters first and leaves first.
+
+#### Core Operations of a Queue
+
+A queue supports the following main operations:
+
+- **enqueue(x)** → Add element x to the back (rear) of the queue.
+- **dequeue()** → Remove and return the front element.
+- **peek() / front()** → View the front element without removing it.
+- **is_empty()** → Check if the queue is empty.
+- **size()** → Return the number of elements in the queue.
+
+#### Types of Queues
+
+- Simple Queue (FIFO) – as explained above.
+- Circular Queue – uses array in circular fashion to optimize space.
+- Double-Ended Queue (Deque) – insertion/removal from both ends.
+- Priority Queue – elements are removed based on priority, not order.
+
+#### Queue Applications
+
+- CPU scheduling (round-robin, FCFS).
+- Task scheduling in operating systems.
+- Printer queue.
+- Breadth-first search (BFS) in graphs.
+- Data buffering (IO operations, streaming).
+
+#### [Code](./basic-data-structures/queues/code.py)
+
+#### [Questions](./basic-data-structures/queues/questions/)
+
+- Balanced Parentheses [(balanced-parentheses)](./basic-data-structures/queues/questions/balanced-parentheses)
+
 ### Hash Tables
 
 ## Algorithmic Complexity
