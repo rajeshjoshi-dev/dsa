@@ -234,11 +234,65 @@ A queue supports the following main operations:
 
 #### [Code](./basic-data-structures/queues/code.py)
 
-#### [Questions](./basic-data-structures/queues/questions/)
-
-- Balanced Parentheses [(balanced-parentheses)](./basic-data-structures/queues/questions/balanced-parentheses)
-
 ### Hash Tables
+
+A Hash Table (or Hash Map) is a key–value data structure that allows very fast data lookup, insertion, and deletion — typically O(1) on average. It uses a hash function to convert a given key into an index (hash code) where the value is stored in memory.
+
+#### How Hash Tables Work?
+
+1. The key is passed through a hash function (e.g., converting a string to a number).
+2. The hash function returns an index in an array (called a bucket).
+3. The key–value pair is stored at that index.
+
+If two keys produce the same index (called a collision), we use a collision resolution technique (see below).
+
+#### Core Operations
+
+- **Insert / put(key, value)** – Add or update a key–value pair.
+- **Get(key)** – Retrieve the value associated with a key.
+- **Delete(key)** – Remove a key–value pair.
+- **Contains(key)** – Check if the key exists.
+- **Size()** – Get the number of key–value pairs.
+
+#### Collision Resolution Techniques
+
+When two keys hash to the same index, we must handle the collision.
+Common techniques include:
+
+1. Chaining (Separate Chaining)
+
+   - Each bucket is a list (linked list or array) of key–value pairs.
+   - Example: Python dictionaries use chaining.
+
+2. Open Addressing
+   - If one index is full, look for another slot using:
+     - Linear probing (next available index)
+     - Quadratic probing
+     - Double hashing
+
+#### Time & Space Complexity
+
+| Operation | Average Case | Worst Case |
+| --------- | ------------ | ---------- |
+| Insert    | O(1)         | O(n)       |
+| Search    | O(1)         | O(n)       |
+| Delete    | O(1)         | O(n)       |
+
+#### Applications of Hash Tables
+
+- Counting frequency (e.g., word count, character count).
+- Caching (LRU cache, memoization).
+- Storing configurations or user sessions.
+- Checking duplicates in an array.
+- Implementing sets and maps.
+
+#### [Code](./basic-data-structures/hash-tables/code.py)
+
+#### [Questions](./basic-data-structures/hash-tables/questions/)
+
+- Count Word Frequency [(count-word-frequency)](./basic-data-structures/hash-tables/questions/count-word-frequency)
+
+- First Non-Repeating Character [(first-non-repeating-character)](./basic-data-structures/hash-tables/questions/first-non-repeating-character)
 
 ## Algorithmic Complexity
 
