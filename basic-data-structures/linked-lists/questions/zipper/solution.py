@@ -27,11 +27,9 @@ class LinkedList:
 
         temp.next = new_node
 
-    def zipper(self, node2: Node):
+    def zipper_v1(self, node2: Node):
         tail = self.head
         node1: Node = self.head.next
-
-        starting = tail
 
         counter = 0
         while True:
@@ -55,7 +53,26 @@ class LinkedList:
             tail.next = current
             tail = current
 
-        self.head = starting
+    def zipper(self, node2: Node):
+        node1 = self.head
+
+        while True:
+
+            n1next = node1.next
+            n2next = node2.next
+
+            node1.next = node2
+
+            if not n1next:
+                break
+
+            node2.next = n1next
+
+            if not n2next:
+                break
+
+            node1 = n1next
+            node2 = n2next
 
     def recursive_zipper(self, node2: Node):
         self.__recursive_zipper(self.head, node2)
@@ -68,7 +85,14 @@ class LinkedList:
         n2next = node2.next
 
         node1.next = node2
+
+        if not n1next:
+            return
+
         node2.next = n1next
+
+        if not n2next:
+            return
 
         self.__recursive_zipper(n1next, n2next)
 
