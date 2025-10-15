@@ -30,11 +30,11 @@ class LinkedList:
     def find_a_node(self, target) -> bool:
         temp = self.head
         while temp:
-            if not temp.next:
-                return False
-
             if temp.data == target:
                 return True
+
+            if not temp.next:
+                return False
 
             temp = temp.next
 
