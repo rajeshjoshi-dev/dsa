@@ -17,10 +17,13 @@ print(arr[-1])  # Last element
 # 2. Traversal
 for x in arr:
     print(x, end=" ")
+print("")
 
 # 3. Insertion
 arr.append(6)  # Add at end
 arr.insert(2, 99)  # Insert at index 2
+
+print(arr)
 
 # 4. Deletion
 arr.remove(99)  # Remove first occurrence

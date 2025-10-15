@@ -3,9 +3,9 @@ def is_balanced(expr) -> bool:
     pairs = {")": "(", "}": "{", "]": "["}
 
     for char in expr:
-        if char in "[{(":
+        if char in pairs.values():  # opening
             stack.append(char)
-        elif char in ")}]":
+        elif char in pairs.keys():  # closing
             if not stack or stack[-1] != pairs[char]:
                 return False
             stack.pop()
@@ -14,4 +14,5 @@ def is_balanced(expr) -> bool:
 
 
 print(is_balanced("([{}])"))  # True
+print(is_balanced("([{}{()}])"))  # True
 print(is_balanced("([)]"))  # False

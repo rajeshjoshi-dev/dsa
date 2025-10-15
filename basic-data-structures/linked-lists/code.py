@@ -75,3 +75,6 @@ ll.print_list()  # 0 -> 1 -> 2 -> 3 -> None
 
 ll.delete_node(2)
 ll.print_list()  # 0 -> 1 -> 3 -> None
+
+ll.insert_after(ll.head.next, 128)
+ll.print_list()  # 0 -> 1 -> 128 -> 3 -> None

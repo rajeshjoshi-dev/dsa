@@ -17,7 +17,7 @@ class Queue:
         return None
 
     def is_empty(self):
-        return len(self.items) == 0
+        return self.size() == 0
 
     def size(self):
         return len(self.items)
