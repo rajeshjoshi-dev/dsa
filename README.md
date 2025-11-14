@@ -19,10 +19,11 @@
 - [Sorting Algorithms](#sorting-algorithms)
 
   - [Bubble Sort](#bubble-sort)
-  - [Merge Sort](#merge-sort)
   - [Insertion Sort](#insertion-sort)
-  - [Quick Sort](#quick-sort)
   - [Selection Sort](#selection-sort)
+  - [Merge Sort](#merge-sort)
+  - [Quick Sort](#quick-sort)
+  - [Counting Sort](#counting-sort)
   - [Heap Sort](#heap-sort)
 
 - [Search Algorithms](#search-algorithms)
@@ -319,21 +320,114 @@ Common techniques include:
 
 ### Bubble Sort
 
-### Merge Sort
+Bubble sort is a simple comparison-based sorting algorithm. It repeatedly steps through the list, compares each pair of adjacent elements, and swaps them if they are in the wrong order. With each pass, the largest remaining element “bubbles up” to its correct position at the end.
+
+**Key points:**
+
+- Works by repeatedly swapping adjacent out-of-order elements
+- After each full pass, one more element is in its final position
+- Worst-case and average time complexity: **O(n²)**
+- Space complexity: **O(1)** (in-place)
+- Easy to understand but inefficient for large datasets
+
+#### [Code](./sorting-algorithms/bubble-sort/code.py)
 
 ### Insertion Sort
 
-### Quick Sort
+Insertion sort builds the final sorted list one element at a time. It takes each element and “inserts” it into its correct position among the elements already sorted on its left.
+
+**Key points:**
+
+- Works like sorting playing cards in your hand
+- For each element, shift larger elements to the right to make space
+- Efficient for small or nearly sorted datasets
+- Worst-case and average time complexity: **O(n²)**
+- Best case (already sorted): **O(n)**
+- Space complexity: **O(1)** (in-place)
+
+#### [Code](./sorting-algorithms/insertion-sort/code.py)
 
 ### Selection Sort
 
+Selection sort repeatedly selects the smallest (or largest) element from the unsorted portion of the list and swaps it with the first element of that unsorted portion. After each pass, the boundary between the sorted and unsorted sections moves by one.
+
+**Key points:**
+
+- Finds the minimum element and places it in its correct position
+- Performs **(n-1)** passes regardless of input order
+- Time complexity (best, average, worst): **O(n²)**
+- Space complexity: **O(1)** (in-place)
+- Simple to implement but inefficient for large datasets
+
+#### [Code](./sorting-algorithms/selection-sort/code.py)
+
+### Merge Sort
+
+Merge sort is a divide-and-conquer sorting algorithm. It works by recursively splitting the list into two halves, sorting each half, and then _merging_ the two sorted halves into one sorted list.
+
+**Key points:**
+
+- Uses “divide → sort → merge” strategy
+- Very efficient for large datasets
+- Time complexity (best, average, worst): **O(n log n)**
+- Space complexity: **O(n)** due to extra arrays used for merging
+- Stable sorting algorithm (preserves order of equal elements)
+
+#### [Code](./sorting-algorithms/merge-sort/code.py)
+
+### Quick Sort
+
+Quick sort is a fast, divide-and-conquer sorting algorithm. It works by choosing a _pivot_ element, partitioning the list so that elements smaller than the pivot go to one side and larger elements go to the other, and then recursively sorting the two partitions.
+
+**Key points:**
+
+- Uses “partition → recursively sort” strategy
+- Very efficient in practice
+- Average time complexity: **O(n log n)**
+- Worst-case time complexity: **O(n²)** (usually avoided with good pivot choices)
+- Space complexity: **O(log n)** on average (due to recursion)
+- Not stable by default, but very widely used due to speed and simplicity
+
+#### [Code](./sorting-algorithms/quick-sort/code.py)
+
+### Counting Sort
+
+Counting sort is a non-comparison sorting algorithm used when the range of input values is known and not too large. It counts how many times each value appears, then uses these counts to place elements directly into their correct positions in the output array.
+
+**Key points:**
+
+- Works by counting occurrences of each value
+- Efficient when the range of numbers (**k**) is small relative to the number of items (**n**)
+- Time complexity: **O(n + k)**
+- Space complexity: **O(k)**
+- Stable when implemented carefully
+- Not suitable for sorting data with very large value ranges relative to the input size
+
+#### [Code](./sorting-algorithms/counting-sort/code.py)
+
 ### Heap Sort
+
+Heap sort is a comparison-based sorting algorithm that uses a **binary heap** data structure. It first builds a max-heap from the input, then repeatedly removes the largest element (the root of the heap) and places it at the end of the array, shrinking the heap each time.
+
+**Key points:**
+
+- Uses a max-heap to repeatedly extract the largest element
+- In-place sorting (requires no extra significant memory)
+- Time complexity (best, average, worst): **O(n log n)**
+- Space complexity: **O(1)**
+- Not stable, but reliable and efficient for large datasets
+
+#### [Code](./sorting-algorithms/heap-sort/code.py)
+
+Resources
+
+- https://youtu.be/gcRUIO-8r3U
 
 ## Search Algorithms
 
-## Binary Search
+### Binary Search
 
-## Linear Search
+### Linear Search
 
 ## Tree Data Structures
 
