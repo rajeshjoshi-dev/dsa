@@ -36,12 +36,16 @@ ht = HashTable()
 ht.put("apple", 100)
 ht.put("banana", 200)
 ht.put("orange", 300)
-print(ht)
+print(
+    ht
+)  # [[], [], [('banana', 200)], [('orange', 300)], [], [], [], [], [], [('apple', 100)]]
 
-ht.put("apple", 400)
+ht.put(
+    "apple", 400
+)  # [[], [], [('banana', 200)], [('orange', 300)], [], [], [], [], [], [('apple', 400)]]
 print(ht)
 
 print(ht.get("banana"))  # 200
 
 ht.remove("banana")
-print(ht)
+print(ht)  # [[], [], [], [('orange', 300)], [], [], [], [], [], [('apple', 400)]]
