@@ -33,8 +33,8 @@
   - [Types of Tree Data Structures](#types-of-tree-data-structures)
   - [Binary Tree](#binary-tree)
   - [Binary Search Tree](#binary-search-tree)
-  - [AVL Trees](#avl-trees)
-  - [B-Trees](#b-trees)
+  - [AVL Tree](#avl-tree)
+  - [B-Tree](#b-tree)
   - [Heap](#heap)
   - [Tree Traversal](#tree-traversal)
     - [In-Order Traversal](#in-order-traversal)
@@ -776,9 +776,51 @@ Because it allows:
 
 #### [code](./tree-data-structures/binary-search-tree/code.py)
 
-### AVL Trees
+### AVL Tree
 
-### B-Trees
+An AVL Tree is a self-balancing Binary Search Tree (BST).
+
+> balance factor = height(left subtree) − height(right subtree)
+
+This value must be −1, 0, or +1. If an insertion or deletion breaks this rule, the tree rotates to restore balance.
+
+#### Key properties
+
+- Binary tree (each node has ≤ 2 children)
+- Always height-balanced
+- Rotations: LL, RR, LR, RL
+- Guarantees fast lookups
+
+#### Time complexity
+
+| Operation | Complexity |
+| --------- | ---------- |
+| Search    | O(log n)   |
+| Insert    | O(log n)   |
+| Delete    | O(log n)   |
+
+#### [code](./tree-data-structures/avl-tree/code.py)
+
+### B-Tree
+
+A B-Tree is a balanced multi-way search tree designed for disk-based storage (databases, file systems). Each node can contain multiple keys and multiple children.
+
+#### Key properties
+
+- Each node has t−1 to 2t−1 keys
+- All leaves are at the same depth
+- Fewer tree levels → fewer disk reads
+- Nodes split when full
+
+#### Time complexity
+
+| Operation | Complexity |
+| --------- | ---------- |
+| Search    | O(log n)   |
+| Insert    | O(log n)   |
+| Delete    | O(log n)   |
+
+#### [code](./tree-data-structures/b-tree/code.py)
 
 ### Heap
 
