@@ -48,12 +48,12 @@
   - [Tree Traversal](#tree-traversal)
 
     - [In-Order Traversal](#in-order-traversal)
-    - [Out-Order Traversal](#out-order-traversal)
+    - [Pre-Order Traversal](#pre-order-traversal)
     - [Post-Order Traversal](#post-order-traversal)
 
   - [Search Algorithms](#tree-search-algorithms)
-    - [Breadth First Search](#breadth-first-search)
-    - [Depth First Search](#depth-first-search)
+    - [Breadth First Search](#breadth-first-search-bfs)
+    - [Depth First Search](#depth-first-search-dfs)
 
 - [Graph Data Structure](#graph-data-structure)
 
@@ -803,19 +803,177 @@ Because it allows:
 
 ### Heap
 
+A Heap is a special tree-based data structure that satisfies the heap property. It is commonly used to implement priority queues.
+
+A heap is a Complete Binary Tree, meaning:
+
+- All levels are completely filled except possibly the last
+- Nodes are filled from left to right
+
+#### Min Heap
+
+- Parent ≤ Children
+- Smallest element is at the root
+
+#### Max Heap
+
+- Parent ≥ Children
+- Largest element is at the root
+
+#### Why Use Heaps?
+
+Heaps are used when you need:
+
+- Fast access to minimum or maximum
+- Efficient priority handling
+
+#### Common Applications
+
+- Priority queues
+- CPU scheduling
+- Dijkstra’s algorithm
+- Heap sort
+- Job scheduling systems
+
+#### Heap Representation
+
+Heaps are usually stored in an array, not using pointers.
+
+For index i:
+
+- Parent → `(i - 1) // 2`
+- Left child → `2*i + 1`
+- Right child → `2*i + 2`
+
+Example (Max Heap): `[50, 30, 40, 10, 20]`
+
+```
+        50
+       /  \
+      30  40
+      / \
+     10  20
+```
+
+#### Time Complexity
+
+| Operation   | Time     |
+| ----------- | -------- |
+| Insert      | O(log n) |
+| Delete      | O(log n) |
+| Get Max/Min | O(1)     |
+
+#### [code](./tree-data-structures/heap/code.py)
+
 ### Tree Traversal
 
-#### In-Order Traversal
+Tree traversal is the process of visiting every node in a tree exactly once in a systematic way.
 
-#### Out-Order Traversal
+| Traversal Type | Order        | Meaning                       |
+| -------------- | ------------ | ----------------------------- |
+| **In-Order**   | L → Root → R | Visit root _between_ subtrees |
+| **Pre-Order**  | Root → L → R | Visit root _before_ subtrees  |
+| **Post-Order** | L → R → Root | Visit root _after_ subtrees   |
 
-#### Post-Order Traversal
+For an example Tree
+
+```
+        1
+       / \
+      2   3
+     / \
+    4   5
+```
+
+Expected Outputs
+
+#### [In-Order Traversal](./tree-data-structures/tree-traversal/in-order-traversal/code.py)
+
+- In-Order → `4 2 5 1 3`
+
+#### [Pre-Order Traversal](./tree-data-structures/tree-traversal/pre-order-traversal/code.py)
+
+- Pre-Order → `1 2 4 5 3`
+
+#### [Post-Order Traversal](./tree-data-structures/tree-traversal/post-order-traversal/code.py)
+
+- Post-Order → `4 5 2 3 1`
+
+#### When to Use Which?
+
+| Traversal      | Common Use Case                        |
+| -------------- | -------------------------------------- |
+| **In-Order**   | Binary Search Trees (sorted output)    |
+| **Pre-Order**  | Copying / serializing a tree           |
+| **Post-Order** | Deleting a tree, expression evaluation |
 
 ### Tree Search Algorithms
 
-#### Breadth First Search
+Tree **search algorithms** define _how we explore nodes to find data or visit all nodes_.
 
-#### Depth First Search
+The two most important strategies are **BFS** and **DFS**.
+
+| Algorithm | Strategy                | Data Structure Used |
+| --------- | ----------------------- | ------------------- |
+| **BFS**   | Level by level          | Queue               |
+| **DFS**   | Go deep, then backtrack | Stack / Recursion   |
+
+#### [Breadth-First Search (BFS)](./tree-data-structures/tree-search-algorithms/breadth-first-search/code.py)
+
+- Visit **all nodes at the current depth first**
+- Then move to the next level
+- Also called **Level-Order Traversal**
+
+Characteristics
+
+- Finds **shortest path** in unweighted trees
+- Uses **queue**
+- Higher memory usage
+
+#### [Depth-First Search (DFS)](./tree-data-structures/tree-search-algorithms/depth-first-search/code.py)
+
+- Go **as deep as possible** before backtracking
+- Can be implemented using:
+  - Recursion
+  - Stack
+
+Characteristics
+
+- Lower memory usage
+- Does **not guarantee shortest path**
+- Has three common forms:
+  - Pre-Order
+  - In-Order
+  - Post-Order
+
+#### BFS vs DFS Comparison
+
+| Feature         | BFS             | DFS                     |
+| --------------- | --------------- | ----------------------- |
+| Traversal Style | Level-wise      | Depth-wise              |
+| Data Structure  | Queue           | Stack / Recursion       |
+| Shortest Path   | ✅ Yes          | ❌ No                   |
+| Memory Usage    | High            | Low                     |
+| Common Use      | Pathfinding, AI | Tree traversal, parsing |
+
+#### Time & Space Complexity
+
+| Algorithm | Time | Space                |
+| --------- | ---- | -------------------- |
+| BFS       | O(n) | O(n)                 |
+| DFS       | O(n) | O(h) _(tree height)_ |
+
+#### When to Use What?
+
+**Use BFS when:**
+
+- You need the shortest path
+- Working with levels (hierarchies)
+
+**Use DFS when:**
+
+- Memory is limited
+- You need to explore deeply (parsing, recursion problems)
 
 ## Graph Data Structure
 
