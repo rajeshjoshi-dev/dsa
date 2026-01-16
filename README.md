@@ -301,11 +301,11 @@ Common techniques include:
 
 - First Non-Repeating Character [(first-non-repeating-character)](./basic-data-structures/hash-tables/questions/first-non-repeating-character)
 
-# Algorithmic Complexities
+## Algorithmic Complexities
 
 Algorithmic complexity describes **how an algorithm’s performance scales** as the size of its input grows. Instead of measuring execution time in seconds (which depends on hardware), we analyze **growth rates**.
 
-## Why Algorithmic Complexity Matters
+### Why Algorithmic Complexity Matters
 
 - Predicts performance on large inputs
 - Helps compare algorithms objectively
@@ -317,11 +317,10 @@ Example problem:
 > Sorting 10 items vs sorting 10 million items
 > A poorly chosen algorithm can make the difference between milliseconds and hours.
 
-## Big-O Notation
+### Big-O Notation
 
 Big-O notation expresses the **upper bound** (worst-case growth) of an algorithm.
-
-### Common Complexity Classes (from best to worst)
+Following are some common Complexity Classes (from best to worst).
 
 | Big-O      | Name         | Example            |
 | ---------- | ------------ | ------------------ |
@@ -333,78 +332,61 @@ Big-O notation expresses the **upper bound** (worst-case growth) of an algorithm
 | O(2ⁿ)      | Exponential  | Recursive subsets  |
 | O(n!)      | Factorial    | Permutations       |
 
-## Time Complexity
+### Time Complexity
 
-### O(1) — Constant Time
+#### [O(1) — Constant Time](./algorithmic-complexities/time-complexity/constant-time/code.py)
 
 Execution time **does not depend on input size**.
 
 - Always one operation
 - Best possible complexity
 
-#### [Code](./algorithmic-complexities/time-complexity/constant-time/code.py)
-
-### O(n) — Linear Time
+#### [O(n) — Linear Time](./algorithmic-complexities/time-complexity/linear-time/code.py)
 
 Time grows **proportionally** with input size.
 
 If `n` doubles → time doubles.
 
-#### [Code](./algorithmic-complexities/time-complexity/linear-time/code.py)
-
-### O(n²) — Quadratic Time
+#### [O(n²) — Quadratic Time](./algorithmic-complexities/time-complexity/quadratic-time/code.py)
 
 Common with **nested loops**.
 
 - If `n = 1,000` → 1,000,000 operations
 - Becomes slow very quickly
 
-#### [Code](./algorithmic-complexities/time-complexity/quadratic-time/code.py)
-
-### O(log n) — Logarithmic Time
+#### [O(log n) — Logarithmic Time](./algorithmic-complexities/time-complexity/logarithmic-time/code.py)
 
 Problem size **halves each step**.
 
 - Very efficient
 - Requires sorted input
 
-#### [Code](./algorithmic-complexities/time-complexity/logarithmic-time/code.py)
-
-### O(n log n) — Linearithmic Time
+#### [O(n log n) — Linearithmic Time](./algorithmic-complexities/time-complexity/linearithmic-time/code.py)
 
 Common in **efficient sorting algorithms**.
 
 - Best practical performance for comparison-based sorting
 
-#### [Code](./algorithmic-complexities/time-complexity/linearithmic-time/code.py)
-
-### O(2ⁿ) — Exponential Time
+#### [O(2ⁿ) — Exponential Time](./algorithmic-complexities/time-complexity/exponential-time/code.py)
 
 Typically appears in **brute-force recursion**.
 
 - Very inefficient
 - Small increases in `n` cause massive slowdowns
 
-#### [Code](./algorithmic-complexities/time-complexity/exponential-time/code.py)
-
-## Space Complexity
+### Space Complexity
 
 Space complexity measures **extra memory used**, excluding input.
 
-### O(1) Space — In Place
+#### [O(1) Space — In Place](./algorithmic-complexities/space-complexity/in-place/code.py)
 
 - Uses a constant number of variables
 
-#### [Code](./algorithmic-complexities/space-complexity/in-place/code.py)
-
-
-### O(n) Space
+#### [O(n) Space](./algorithmic-complexities/space-complexity/o-n-space/code.py)
 
 - Extra memory proportional to input size
 
-#### [Code](./algorithmic-complexities/space-complexity/o-n-space/code.py)
-
-## Best, Average, and Worst Case
+### Best, Average, and Worst Case
 
 Example: Linear Search
 
@@ -422,7 +404,7 @@ def linear_search(arr, target):
 | Average | Random position   | O(n)       |
 | Worst   | Not present       | O(n)       |
 
-## Dropping Constants and Lower-Order Terms
+### Dropping Constants and Lower-Order Terms
 
 Big-O ignores constants:
 
@@ -435,7 +417,7 @@ Reason:
 
 - Growth rate matters more than exact count
 
-## Common Pitfalls
+### Common Pitfalls
 
 ❌ Mistaking multiple loops for O(n²)
 
@@ -456,7 +438,7 @@ if x in arr:  # O(n)
     print("Found")
 ```
 
-## Practical Complexity Comparison
+### Practical Complexity Comparison
 
 | n         | O(n)   | O(n log n) | O(n²)       |
 | --------- | ------ | ---------- | ----------- |
@@ -464,7 +446,7 @@ if x in arr:  # O(n)
 | 10,000    | 10,000 | ~132,877   | 100,000,000 |
 | 1,000,000 | 1M     | ~20M       | 1T          |
 
-## Algorithmic Complexities Key Takeaways
+### Algorithmic Complexities Key Takeaways
 
 - Big-O measures **growth**, not exact time
 - Nested loops usually → **quadratic**
