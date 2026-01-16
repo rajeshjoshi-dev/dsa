@@ -39,6 +39,7 @@
 
 - [Tree Data Structures](#tree-data-structures)
 
+  - [Types of Tree Data Structures](#types-of-tree-data-structures)
   - [Binary Trees](#binary-trees)
   - [Binary Search Trees](#binary-search-trees)
   - [AVL Trees](#avl-trees)
@@ -660,9 +661,141 @@ Binary Search repeatedly divides the search space in half to find the target.
 
 ## Tree Data Structures
 
-### Binary Trees
+A tree is a hierarchical data structure used to organize and represent data in a parent–child relationship. It consists of nodes, where the topmost node is called the root, and every other node can have one or more child nodes.
+
+### Basic Terminologies
+
+- **Parent Node:** A node that is an immediate predecessor of another node.
+- **Child Node:** A node that is an immediate successor of another node.
+- **Root Node:** The topmost node in a tree, which does not have a parent.
+- **Leaf Node (External Node):** Nodes that do not have any children.
+- **Ancestor:** Any node on the path from the root to a given node (excluding the node itself).
+- **Descendant:** A node x is a descendant of another node y if y is an ancestor of x.
+- **Sibling:** Nodes that share the same parent.
+- **Level of a Node:** The number of edges in the path from the root to that node.
+- **Internal Node:** A node with at least one child.
+- **Neighbor of a Node:** The parent or children of a node.
+- **Subtree:** A node and all its descendants form a subtree.
+
+```
+        A        ← root
+       / \
+      B   C      ← children of A
+     / \
+    D   E        ← leaves
+```
+
+#### [code](./tree-data-structures/tree/code.py)
+
+### Types of Tree Data Structures
+
+Tree data structures can be classified based on the number of children each node can have.
+
+#### Binary Tree
+
+Each node can have a maximum of two children.
+
+- Full Binary Tree – every node has either 0 or 2 children.
+- Complete Binary Tree – all levels are fully filled except possibly the last, which is filled from left to right.
+- Balanced Binary Tree – height difference between left and right subtrees of every node is minimal.
+
+#### Ternary Tree:
+
+Each node can have at most three children, often labeled as left, middle, and right.
+
+#### N-ary Tree (or Generic Tree):
+
+- Each node can have any number of children.
+- Each node typically contains: Some data, A list of references to its children (duplicates are not allowed).
+- Unlike linked lists, nodes store references to multiple child nodes.
+
+#### Basic Operations Of Tree Data Structure:
+
+- Create – create a tree in the data structure.
+- Insert − Inserts data in a tree.
+- Search − Searches specific data in a tree to check whether it is present or not.
+- Traversal:
+  - Depth-First-Search Traversal
+  - Breadth-First-Search Traversal
+
+### Binary Tree
+
+A Binary Tree is a special type of tree data structure in which each node has at most two children, called the left child and the right child.
+
+- Each node stores data.
+- Each node can have 0, 1, or 2 children.
+- Children are distinguished as left and right.
+
+#### Types of Binary Trees
+
+- **Full Binary Tree:** Each node has 0 or 2 children
+- **Complete Binary Tree:** All levels filled except possibly last
+- **Perfect Binary Tree:** All internal nodes have 2 children and all leaves are at the same level
+- **Binary Search Tree (BST):** Left < Root < Right (ordered)
+
+#### Time Complexity
+
+| Operation | Complexity |
+| --------- | ---------- |
+| Traversal | O(n)       |
+| Insertion | O(n)       |
+| Searching | O(n)       |
+
+#### Where Binary Trees Are Used
+
+- Expression evaluation
+- File systems
+- Searching & sorting
+- Heaps (priority queues)
+- Compilers and AI
+
+#### [code](./tree-data-structures/binary-tree/code.py)
 
 ### Binary Search Trees
+
+A Binary Search Tree (BST) is a binary tree with an ordering rule that makes searching, insertion, and deletion efficient.
+
+A BST follows this property for every node:
+
+> Left subtree values < Node value < Right subtree values
+
+This rule applies recursively to all subtrees.
+
+```
+        50
+       /  \
+     30    70
+    / \    / \
+  20  40  60  80
+```
+
+#### Why Use a BST?
+
+Because it allows:
+
+- Fast search
+- Efficient insertion
+- Sorted traversal
+
+#### Time Complexity
+
+| Operation | Time     |
+| --------- | -------- |
+| Search    | O(log n) |
+| Insert    | O(log n) |
+| Delete    | O(log n) |
+
+**NOTE:** Worst case (skewed tree): O(n)
+
+#### Applications of BST
+
+- Databases indexing
+- Auto-complete systems
+- Symbol tables
+- Memory management
+- Sorted data storage
+
+#### [code](./tree-data-structures/binary-search-tree/code.py)
 
 ### AVL Trees
 
