@@ -545,21 +545,77 @@ Counting sort is a non-comparison sorting algorithm used when the range of input
 
 ### Heap Sort
 
-Heap sort is a comparison-based sorting algorithm that uses a **binary heap** data structure. It first builds a max-heap from the input, then repeatedly removes the largest element (the root of the heap) and places it at the end of the array, shrinking the heap each time.
+**Heap Sort** is a **comparison-based sorting algorithm** that uses a **binary heap** data structure.
+It works by:
 
-**Key points:**
+1. Building a **Max Heap** from the input array.
+2. Repeatedly removing the **largest element** (the root of the heap) and placing it at the end of the array.
+3. Restoring the heap property after each removal.
 
-- Uses a max-heap to repeatedly extract the largest element
-- In-place sorting (requires no extra significant memory)
-- Time complexity (best, average, worst): **O(n log n)**
-- Space complexity: **O(1)**
-- Not stable, but reliable and efficient for large datasets
+Key Concepts
+
+#### Binary Heap
+
+A **binary heap** is a complete binary tree where:
+
+* **Max Heap**: Parent ≥ children (used in Heap Sort)
+* **Min Heap**: Parent ≤ children
+
+In arrays:
+
+* Left child index = `2*i + 1`
+* Right child index = `2*i + 2`
+* Parent index = `(i - 1) // 2`
+
+#### Algorithm Steps
+
+Step 1: Build a Max Heap
+
+Convert the array into a max heap so the **largest element is at index 0**.
+
+Step 2: Extract Elements One by One
+
+* Swap the root (largest) with the last element
+* Reduce heap size
+* Heapify the root to restore max heap property
+
+#### Heapify Function
+
+Ensures the subtree rooted at index `i` satisfies max heap property.
+
+#### Time & Space Complexity
+
+| Case    | Time Complexity |
+| ------- | --------------- |
+| Best    | O(n log n)      |
+| Average | O(n log n)      |
+| Worst   | O(n log n)      |
+
+* **Space Complexity**: `O(1)` (in-place)
+* **Stable**: ❌ No
+* **In-place**: ✅ Yes
+
+#### Advantages & Disadvantages
+
+Advantages
+
+* Guaranteed `O(n log n)` time
+* No extra memory needed
+* Good for large datasets
+
+Disadvantages
+
+* Not stable
+* Slower than Quick Sort in practice (cache-unfriendly)
+* More complex than simpler algorithms
+
+#### When to Use Heap Sort?
+
+* When **worst-case performance matters**
+* When **memory usage must be minimal**
+* In systems where recursion depth is a concern
 
 #### [Code](./sorting-algorithms/heap-sort/code.py)
-
-Resources
-
-- https://youtu.be/gcRUIO-8r3U
 
 ## Search Algorithms
 
