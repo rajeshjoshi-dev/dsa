@@ -34,8 +34,8 @@
 
 - [Search Algorithms](#search-algorithms)
 
-  - [Binary Search](#binary-search)
   - [Linear Search](#linear-search)
+  - [Binary Search](#binary-search)
 
 - [Tree Data Structures](#tree-data-structures)
 
@@ -558,14 +558,14 @@ Key Concepts
 
 A **binary heap** is a complete binary tree where:
 
-* **Max Heap**: Parent ≥ children (used in Heap Sort)
-* **Min Heap**: Parent ≤ children
+- **Max Heap**: Parent ≥ children (used in Heap Sort)
+- **Min Heap**: Parent ≤ children
 
 In arrays:
 
-* Left child index = `2*i + 1`
-* Right child index = `2*i + 2`
-* Parent index = `(i - 1) // 2`
+- Left child index = `2*i + 1`
+- Right child index = `2*i + 2`
+- Parent index = `(i - 1) // 2`
 
 #### Algorithm Steps
 
@@ -575,9 +575,9 @@ Convert the array into a max heap so the **largest element is at index 0**.
 
 Step 2: Extract Elements One by One
 
-* Swap the root (largest) with the last element
-* Reduce heap size
-* Heapify the root to restore max heap property
+- Swap the root (largest) with the last element
+- Reduce heap size
+- Heapify the root to restore max heap property
 
 #### Heapify Function
 
@@ -591,37 +591,72 @@ Ensures the subtree rooted at index `i` satisfies max heap property.
 | Average | O(n log n)      |
 | Worst   | O(n log n)      |
 
-* **Space Complexity**: `O(1)` (in-place)
-* **Stable**: ❌ No
-* **In-place**: ✅ Yes
+- **Space Complexity**: `O(1)` (in-place)
+- **Stable**: ❌ No
+- **In-place**: ✅ Yes
 
 #### Advantages & Disadvantages
 
 Advantages
 
-* Guaranteed `O(n log n)` time
-* No extra memory needed
-* Good for large datasets
+- Guaranteed `O(n log n)` time
+- No extra memory needed
+- Good for large datasets
 
 Disadvantages
 
-* Not stable
-* Slower than Quick Sort in practice (cache-unfriendly)
-* More complex than simpler algorithms
+- Not stable
+- Slower than Quick Sort in practice (cache-unfriendly)
+- More complex than simpler algorithms
 
 #### When to Use Heap Sort?
 
-* When **worst-case performance matters**
-* When **memory usage must be minimal**
-* In systems where recursion depth is a concern
+- When **worst-case performance matters**
+- When **memory usage must be minimal**
+- In systems where recursion depth is a concern
 
 #### [Code](./sorting-algorithms/heap-sort/code.py)
 
 ## Search Algorithms
 
+### Linear Search
+
+Linear Search checks each element one by one until:
+
+- the target element is found, or
+- the list ends.
+
+#### Key Characteristics
+
+- Works on unsorted or sorted data
+- Very easy to understand and implement
+- Inefficient for large datasets
+
+#### Time Complexity
+
+- Best case: O(1) (first element)
+- Average/Worst case: O(n)
+
+#### [Code](./search-algorithms/linear-search/code.py)
+
 ### Binary Search
 
-### Linear Search
+Binary Search repeatedly divides the search space in half to find the target.
+
+**Important:** Data must be sorted
+
+#### Key Characteristics
+
+- Much faster than Linear Search
+- Requires sorted array
+- Efficient for large datasets
+
+#### Time Complexity
+
+- Best case: O(1)
+- Worst/Average case: O(log n)
+
+#### [Code](./search-algorithms/binary-search/code.py)
 
 ## Tree Data Structures
 
