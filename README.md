@@ -31,8 +31,8 @@
   - [Binary Search](#binary-search)
 - [Tree Data Structures](#tree-data-structures)
   - [Types of Tree Data Structures](#types-of-tree-data-structures)
-  - [Binary Trees](#binary-trees)
-  - [Binary Search Trees](#binary-search-trees)
+  - [Binary Tree](#binary-tree)
+  - [Binary Search Tree](#binary-search-tree)
   - [AVL Trees](#avl-trees)
   - [B-Trees](#b-trees)
   - [Heap](#heap)
@@ -670,7 +670,7 @@ A tree is a hierarchical data structure used to organize and represent data in a
 
 Tree data structures can be classified based on the number of children each node can have.
 
-#### Binary Tree
+#### Binary Trees
 
 Each node can have a maximum of two children.
 
@@ -730,7 +730,7 @@ A Binary Tree is a special type of tree data structure in which each node has at
 
 #### [code](./tree-data-structures/binary-tree/code.py)
 
-### Binary Search Trees
+### Binary Search Tree
 
 A Binary Search Tree (BST) is a binary tree with an ordering rule that makes searching, insertion, and deletion efficient.
 
