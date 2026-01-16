@@ -10,11 +10,17 @@
   - [Queues](#queues)
   - [Hash Tables](#hash-tables)
 
-- [Algorithmic Complexity](#algorithmic-complexity)
+- [Algorithmic Complexities](#algorithmic-complexities)
 
-  - [Time vs Space Complexity](#time-vs-space-complexity)
-  - [How to Calculate Complexity?](#how-to-calculate-complexity)
-  - [Notations](#notations)
+  - [Why Algorithmic Complexity Matters](#why-algorithmic-complexity-matters)
+  - [Big-O Notation](#big-o-notation)
+  - [Time Complexity](#time-complexity)
+  - [Space Complexity](#space-complexity)
+  - [Best, Average, and Worst Case](#best-average-and-worst-case)
+  - [Dropping Constants and Lower-Order Terms](#dropping-constants-and-lower-order-terms)
+  - [Common Pitfalls](#common-pitfalls)
+  - [Practical Complexity Comparison](#practical-complexity-comparison)
+  - [Algorithmic Complexities Key Takeaways](#algorithmic-complexities-key-takeaways)
 
 - [Sorting Algorithms](#sorting-algorithms)
 
@@ -295,26 +301,176 @@ Common techniques include:
 
 - First Non-Repeating Character [(first-non-repeating-character)](./basic-data-structures/hash-tables/questions/first-non-repeating-character)
 
-## Algorithmic Complexity
+# Algorithmic Complexities
 
-"Algorithmic Complexity" refers to the computing resources needed by an algorithm to solve a problem. These computing resources can be the time taken for program execution (time complexity), or the space used in memory during its execution (space complexity). The aim is to minimize these resources, so an algorithm that takes less time and space is considered more efficient. Complexity is usually expressed using Big O notation, which describes the upper bound of time or space needs, and explains how they grow in relation to the input size. It's important to analyze and understand the algorithmic complexity to choose or design the most efficient algorithm for a specific use-case.
+Algorithmic complexity describes **how an algorithm’s performance scales** as the size of its input grows. Instead of measuring execution time in seconds (which depends on hardware), we analyze **growth rates**.
 
-- Constant
-- Logarithmic
-- Linear
-- Polynomial
-- Exponential
-- Factorial
+## Why Algorithmic Complexity Matters
 
-### Time vs Space Complexity
+- Predicts performance on large inputs
+- Helps compare algorithms objectively
+- Essential for scalability and system design
+- Frequently tested in technical interviews
 
-### How to Calculate Complexity?
+Example problem:
 
-### Notations
+> Sorting 10 items vs sorting 10 million items
+> A poorly chosen algorithm can make the difference between milliseconds and hours.
 
-- Big O Notation
-- Big-θ Notation
-- Big-Ω Notation
+## Big-O Notation
+
+Big-O notation expresses the **upper bound** (worst-case growth) of an algorithm.
+
+### Common Complexity Classes (from best to worst)
+
+| Big-O      | Name         | Example            |
+| ---------- | ------------ | ------------------ |
+| O(1)       | Constant     | Array access       |
+| O(log n)   | Logarithmic  | Binary search      |
+| O(n)       | Linear       | Loop through array |
+| O(n log n) | Linearithmic | Merge sort         |
+| O(n²)      | Quadratic    | Nested loops       |
+| O(2ⁿ)      | Exponential  | Recursive subsets  |
+| O(n!)      | Factorial    | Permutations       |
+
+## Time Complexity
+
+### O(1) — Constant Time
+
+Execution time **does not depend on input size**.
+
+- Always one operation
+- Best possible complexity
+
+#### [Code](./algorithmic-complexities/time-complexity/constant-time/code.py)
+
+### O(n) — Linear Time
+
+Time grows **proportionally** with input size.
+
+If `n` doubles → time doubles.
+
+#### [Code](./algorithmic-complexities/time-complexity/linear-time/code.py)
+
+### O(n²) — Quadratic Time
+
+Common with **nested loops**.
+
+- If `n = 1,000` → 1,000,000 operations
+- Becomes slow very quickly
+
+#### [Code](./algorithmic-complexities/time-complexity/quadratic-time/code.py)
+
+### O(log n) — Logarithmic Time
+
+Problem size **halves each step**.
+
+- Very efficient
+- Requires sorted input
+
+#### [Code](./algorithmic-complexities/time-complexity/logarithmic-time/code.py)
+
+### O(n log n) — Linearithmic Time
+
+Common in **efficient sorting algorithms**.
+
+- Best practical performance for comparison-based sorting
+
+#### [Code](./algorithmic-complexities/time-complexity/linearithmic-time/code.py)
+
+### O(2ⁿ) — Exponential Time
+
+Typically appears in **brute-force recursion**.
+
+- Very inefficient
+- Small increases in `n` cause massive slowdowns
+
+#### [Code](./algorithmic-complexities/time-complexity/exponential-time/code.py)
+
+## Space Complexity
+
+Space complexity measures **extra memory used**, excluding input.
+
+### O(1) Space — In Place
+
+- Uses a constant number of variables
+
+#### [Code](./algorithmic-complexities/space-complexity/in-place/code.py)
+
+
+### O(n) Space
+
+- Extra memory proportional to input size
+
+#### [Code](./algorithmic-complexities/space-complexity/o-n-space/code.py)
+
+## Best, Average, and Worst Case
+
+Example: Linear Search
+
+```python
+def linear_search(arr, target):
+    for i, val in enumerate(arr):
+        if val == target:
+            return i
+    return -1
+```
+
+| Case    | Scenario          | Complexity |
+| ------- | ----------------- | ---------- |
+| Best    | Target at index 0 | O(1)       |
+| Average | Random position   | O(n)       |
+| Worst   | Not present       | O(n)       |
+
+## Dropping Constants and Lower-Order Terms
+
+Big-O ignores constants:
+
+```text
+O(3n + 10) → O(n)
+O(n² + n) → O(n²)
+```
+
+Reason:
+
+- Growth rate matters more than exact count
+
+## Common Pitfalls
+
+❌ Mistaking multiple loops for O(n²)
+
+```python
+for i in arr:
+    print(i)
+
+for j in arr:
+    print(j)
+```
+
+✅ This is **O(n)**, not O(n²)
+
+❌ Ignoring hidden loops (e.g., `.in`, `.count()`)
+
+```python
+if x in arr:  # O(n)
+    print("Found")
+```
+
+## Practical Complexity Comparison
+
+| n         | O(n)   | O(n log n) | O(n²)       |
+| --------- | ------ | ---------- | ----------- |
+| 100       | 100    | ~664       | 10,000      |
+| 10,000    | 10,000 | ~132,877   | 100,000,000 |
+| 1,000,000 | 1M     | ~20M       | 1T          |
+
+## Algorithmic Complexities Key Takeaways
+
+- Big-O measures **growth**, not exact time
+- Nested loops usually → **quadratic**
+- Recursion affects **space complexity**
+- Prefer **O(log n)** and **O(n log n)** when possible
+- Always think about **scalability**
 
 ## Sorting Algorithms
 
