@@ -45,8 +45,8 @@
     - [Depth First Search](#depth-first-search-dfs)
 - [Graph Data Structure](#graph-data-structure)
   - [Graph Search Algorithms](#graph-search-algorithms)
-    - [Breadth First Search](#depth-first-search-1)
-    - [Depth First Search](#breadth-first-search-1)
+    - [Breadth First Search](#breadth-first-search-bfs-1)
+    - [Depth First Search](#depth-first-search-dfs-1)
   - [Shortest Path Algorithms](#shortest-path-algorithms)
     - [Dijkstra's Algorithm](#dijkstras-algorithm)
     - [Bellman-Ford Algorithm](#bellman-ford-algorithm)
@@ -247,7 +247,6 @@ When two keys hash to the same index, we must handle the collision.
 Common techniques include:
 
 1. Chaining (Separate Chaining)
-
    - Each bucket is a list (linked list or array) of key–value pairs.
    - Example: Python dictionaries use chaining.
 
@@ -998,11 +997,112 @@ Characteristics
 
 ## Graph Data Structure
 
+A **graph** is a data structure used to represent **relationships** between objects.
+
+### Components of a Graph
+
+- **Vertex (Node)** – an individual object
+- **Edge** – a connection between two vertices
+
+### Types of Graphs
+
+- **Undirected Graph** – edges have no direction
+- **Directed Graph (Digraph)** – edges have direction
+- **Weighted Graph** – edges have weights (cost, distance, etc.)
+- **Unweighted Graph** – edges have no weight
+
+### Graph Representations in Python
+
+#### 1. Adjacency List (Most Common)
+
+Each node stores a list of its neighbors.
+
+```python
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D'],
+    'C': ['A', 'D'],
+    'D': ['B', 'C']
+}
+```
+
+- Efficient for sparse graphs
+- Easy to traverse
+
+#### 2. Adjacency Matrix
+
+A 2D matrix showing connections.
+
+```text
+   A B C D
+A  0 1 1 0
+B  1 0 0 1
+C  1 0 0 1
+D  0 1 1 0
+```
+
+- Uses more memory
+- Fast edge lookup
+
 ### Graph Search Algorithms
 
-#### Breadth First Search
+#### [Breadth-First Search (BFS)](./graph-data-structure/graph-traversal/bfs/code.py)
 
-#### Depth First Search
+BFS explores the graph **level by level**. It uses a **Queue (FIFO)**
+
+Commonly used for:
+
+- Shortest path (unweighted graphs)
+- Level-order traversal
+- Social networks
+
+#### [Depth-First Search (DFS)](./graph-data-structure/graph-traversal/dfs/code.py)
+
+DFS explores **as deep as possible** before backtracking. Uses **Stack** (or recursion)
+
+Commonly used for:
+
+- Cycle detection
+- Topological sorting
+- Path finding
+
+### BFS vs DFS Comparison
+
+| Feature        | BFS            | DFS               |
+| -------------- | -------------- | ----------------- |
+| Data Structure | Queue          | Stack / Recursion |
+| Traversal      | Level by level | Depth first       |
+| Memory         | Higher         | Lower             |
+| Shortest Path  | ✅ Yes         | ❌ No             |
+
+### Time & Space Complexity
+
+For both BFS and DFS:
+
+- **Time Complexity:** `O(V + E)`
+- **Space Complexity:** `O(V)`
+
+Where:
+
+- `V` = number of vertices
+- `E` = number of edges
+
+### Real-World Applications of Graphs
+
+- Navigation
+- Social networks (connections)
+- Web page links
+- Network routing
+- Recommendation systems
+
+#### [Questions](./graph-data-structure/questions/)
+
+- [Has path](./graph-data-structure/questions/has-path/)
+- [Count connected components](./graph-data-structure/questions/count-connected-components/)
+- [Largest Component](./graph-data-structure/questions/largest-component/)
+- [Shortest Path](./graph-data-structure/questions/shortest-path/)
+- [Island Count](./graph-data-structure/questions/island-count/)
+- [Minimum Island](./graph-data-structure/questions/minimum-island/)
 
 ### Shortest Path Algorithms
 
