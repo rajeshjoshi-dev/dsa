@@ -1219,6 +1219,59 @@ Works Best When
 
 ### Brute Force
 
+Try **all possible solutions**, check which one works, and pick the best. It prioritizes **correctness over efficiency** and is often the **first solution** you write.
+
+#### When to Use Brute Force
+
+Use brute force when:
+
+- Input size is **small**
+- You’re **stuck** and need a baseline solution
+- You want to **verify optimized solutions**
+- Constraints are unclear
+
+> Avoid when input size is large (e.g., `n > 10^5`).
+
+#### Core Brute Force Techniques
+
+| Technique                               | Problem                                                                                                                                     | Time Complexity |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| Nested Loops (Try All Pairs / Triplets) | [Find two numbers whose sum is `k`](./problem-solving-techniques/brute-force/nested-loops/code.py)                                          | O(n²)           |
+| Enumerating All Subarrays               | [Find maximum subarray sum](./problem-solving-techniques/brute-force/enumerating-all-subarrays/code.py)                                     | O(n³)           |
+| Generate All Subsets (Bit Masking)      | [Print all subsets](./problem-solving-techniques/brute-force/generate-all-subsets/code.py)                                                  | O(2ⁿ × n)       |
+| Permutations (Backtracking)             | [Generate all permutations](./problem-solving-techniques/brute-force/permutations/code.py)                                                  | O(n!)           |
+| Brute Force with Condition Checking     | [Find longest substring without repeating characters](./problem-solving-techniques/brute-force/brute-force-with-condition-checking/code.py) | O(n³)           |
+
+#### Brute Force Thinking Pattern
+
+Ask yourself:
+
+1. What are **all possible choices**?
+2. Can I **enumerate** them?
+3. How do I **check validity**?
+4. What’s the **best answer** among them?
+
+#### How Brute Force Evolves
+
+| Step | Technique                       |
+| ---- | ------------------------------- |
+| 1    | Brute force                     |
+| 2    | Remove repeated work            |
+| 3    | Use hash sets / prefix sums     |
+| 4    | Optimize to sliding window / DP |
+
+Most **optimized solutions start as brute force**.
+
+#### Key Takeaways for Brute Force Technique
+
+- Brute force is **easy to write, easy to debug**
+- Always check **constraints**
+- Use it to:
+  - Understand the problem
+  - Validate optimized solutions
+
+- If brute force **TLEs**, optimize step-by-step
+
 ### Backtracking
 
 ### Greedy Algorithms
