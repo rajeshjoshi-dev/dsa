@@ -1106,11 +1106,80 @@ Where:
 
 ### Shortest Path Algorithms
 
-#### Dijkstra's Algorithm
+You are given:
 
-#### Bellman-Ford Algorithm
+- A **graph** (nodes + weighted edges)
+- A **start node**
+- A **target node**
 
-#### A\* Algorithm
+Goal: find the **minimum-cost path** from start to target.
+
+#### [Dijkstra’s Algorithm](./graph-data-structure/shortest-path-algorithms/dijkstras-algorithm/code.py)
+
+Always expand the **closest unvisited node** first.
+
+Works When
+
+- All edge weights are **non-negative**
+- You want **fast performance**
+
+Fails When
+
+- There are **negative edge weights**
+
+**Intuition:** Think of ripples spreading from the start node.
+The first time you reach a node → you’ve found the shortest path to it.
+
+#### [Bellman-Ford Algorithm](./graph-data-structure/shortest-path-algorithms/bellman-ford-algorithm/code.py)
+
+Relax **all edges repeatedly** (V−1 times).
+
+Works When
+
+- Graph has **negative edge weights**
+- You need **negative cycle detection**
+
+Slower Than Dijkstra
+
+- Time Complexity: **O(V × E)**
+
+**Intuition:** Each iteration allows paths to grow by one more edge.
+After V−1 relaxations, shortest paths are guaranteed.
+
+- Financial graphs
+- Currency exchange problems
+- Any case where negative weights exist
+
+#### [A\* Algorithm](./graph-data-structure/shortest-path-algorithms/a-star-algorithm/code.py)
+
+Use **heuristics** to guide the search toward the goal.
+
+> **f(n) = g(n) + h(n)**
+
+- `g(n)`: cost from start
+- `h(n)`: estimated cost to goal
+
+Works Best When
+
+- You know the **destination**
+- You have a **good heuristic**
+- Common in **games & maps**
+
+**Intuition:** Like Dijkstra—but _smarter_ because it knows where the goal is.
+
+#### Algorithm Comparison
+
+| Algorithm    | Negative Weights | Fast | Uses Heuristic | Typical Use     |
+| ------------ | ---------------- | ---- | -------------- | --------------- |
+| Dijkstra     | ❌               | ✅   | ❌             | Road networks   |
+| Bellman-Ford | ✅               | ❌   | ❌             | Finance, cycles |
+| A\*          | ❌               | ✅✅ | ✅             | Games, maps     |
+
+#### How to Choose?
+
+- **No negative weights + speed?** → Dijkstra
+- **Negative weights?** → Bellman-Ford
+- **Known destination + heuristic?** → A\*
 
 ### Minimum Spanning Tree
 
