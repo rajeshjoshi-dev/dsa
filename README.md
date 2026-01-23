@@ -1298,6 +1298,126 @@ Most **optimized solutions start as brute force**.
 
 ### Two Pointer Technique
 
+**Two Pointers** means using **two indices** to scan a data structure (usually an array or string) **in a coordinated way** instead of brute force nested loops.
+
+> _Replace O(n²) with O(n)._
+
+#### When to Use Two Pointers
+
+Use it when:
+
+- The data is **sorted** (or can be sorted)
+- You’re checking **pairs, ranges, or conditions**
+- You want **subarrays / substrings**
+- You need **linear time**
+
+Common problem types:
+
+- Pair sum
+- Removing duplicates
+- Reverse / partition array
+- Palindromes
+- Sliding window (special case)
+
+#### Opposite Direction Pointers
+
+- One pointer at **start**
+- One pointer at **end**
+- Move inward based on condition
+
+[Two Sum (Sorted Array)](./problem-solving-techniques/two-pointer-technique/two-sum/code.py)
+
+- Time: **O(n)**
+- Why it works: sorted order tells you _which pointer to move_.
+
+[Check Palindrome](./problem-solving-techniques/two-pointer-technique/check-palindrome/code.py)
+
+[Reverse Array In-Place](./problem-solving-techniques/two-pointer-technique/reverse-array-in-place/code.py)
+
+#### Same Direction Pointers (Fast & Slow)
+
+- Both pointers move **forward**
+- One moves faster or only under condition
+
+[Remove Duplicates (Sorted Array)](./problem-solving-techniques/two-pointer-technique/remove-duplicates/code.py)
+
+- In-place
+- O(n) time
+- O(1) space
+
+[Move Zeroes](./problem-solving-techniques/two-pointer-technique/move-zeroes/code.py)
+
+[Valid Subsequence](./problem-solving-techniques/two-pointer-technique/valid-subsequence/code.py)
+
+#### Sliding Window (Two Pointers Variant)
+
+When the window **grows and shrinks**.
+
+[Longest Substring Without Repeating Characters](./problem-solving-techniques/two-pointer-technique/longest-subs-wo-rep-char/code.py)
+
+- Time: **O(n)**
+
+#### How to Recognize Two Pointer Problems
+
+If the problem mentions:
+
+- “sorted array”
+- “pair”
+- “subarray”
+- “remove in-place”
+- “longest / shortest range”
+
+#### Key Takeaways for Two Pointers Technique
+
+- Requires **sorted data** or controlled movement
+- Simple logic, massive speedup
+- Foundation for:
+  - Sliding window
+  - Partitioning
+  - Binary search patterns
+
 ### Fast and Slow Pointers
+
+You use **two pointers** moving at different speeds through a data structure (usually a linked list or array).
+
+- **Slow pointer:** moves 1 step at a time
+- **Fast pointer:** moves 2 steps at a time
+
+If there is a **cycle**, the fast pointer will eventually **catch up to the slow pointer**. If no cycle, fast pointer reaches the end.
+
+#### Common Use Cases
+
+- Detect cycle in linked list
+- Find middle of linked list
+- Find cycle start node
+- Remove nth node from end
+- Palindrome linked list
+
+#### Most Common Interview Questions
+
+[Detect Cycle in Linked List (LeetCode 141)](./problem-solving-techniques/fast-and-slow-pointers/detect-cycle-in-linked-list/code.py)
+
+- Time: O(n) | Space: O(1)
+
+[Find Middle of Linked List](./problem-solving-techniques/fast-and-slow-pointers/find-middle-of-linked-list/code.py)
+
+- If even length → returns 2nd middle.
+
+[Find Start of Cycle (LeetCode 142)](./problem-solving-techniques/fast-and-slow-pointers/find-start-of-cycle/code.py)
+
+[Remove Nth Node From End (Two Pointers Variant)](./problem-solving-techniques/fast-and-slow-pointers/remove-nth-node-from-end/code.py)
+
+[Check Palindrome Linked List](./problem-solving-techniques/fast-and-slow-pointers/check-palindrome-linked-list/code.py)
+
+- Always mention **O(1) space advantage**
+- Explain with **runner analogy**
+- Mention **Floyd’s Cycle Detection Algorithm**
+- Works best with **Linked Lists, Arrays, Circular Buffers**
+
+#### When NOT to Use This Technique
+
+- When random access is needed
+- When you need all pairs → use two pointers (left/right) instead
+- When recursion is simpler (tree problems)
 
 ### Sliding Window Technique
